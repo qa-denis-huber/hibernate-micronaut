@@ -1,0 +1,26 @@
+micronaut:
+  application:
+    name: jsonb
+
+datasources:
+  default:
+    url: jdbc:postgresql://localhost:5432/my_database
+    username: my_user
+    password: geheim
+    driverClassName: org.postgresql.Driver
+
+jpa:
+  default:
+    packages-to-scan:
+      - 'de.denis.poc'
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
+        show_sql: true
+
+flyway:
+  datasources:
+    default:
+      locations: classpath:flyway
+      cleanOnValidationError: true # use only for development, never in production!
