@@ -4,10 +4,12 @@ import io.micronaut.configuration.hibernate.jpa.scope.CurrentSession;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
+import io.micronaut.http.annotation.QueryValue;
 import io.micronaut.spring.tx.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -22,11 +24,18 @@ public class SectionController {
     }
 
     @Get
-    @Transactional
+    @Transactional(readOnly = true)
     public List<SectionEntity> findAll() {
         TypedQuery<SectionEntity> query = entityManager.createQuery("SELECT s FROM SectionEntity as s", SectionEntity.class);
         query.setMaxResults(10);
         return query.getResultList();
+    }
+
+    @Get("/{id}")
+    @Transactional(readOnly = true)
+    public SectionEntity findByAbc(@QueryValue String id) {
+        Query query = entityManager.createNativeQuery("SELECT * FROM section s WHERE s.dimensions->'id' = '" + id + "'", SectionEntity.class);
+        return (SectionEntity) query.getSingleResult();
     }
 
     @Post

@@ -3,23 +3,23 @@ package de.denis.poc;
 import java.io.Serializable;
 
 public class DimensionEntity implements Serializable {
-    private String abc;
+    private String id;
     private String def;
 
     public DimensionEntity() {
     }
 
-    public DimensionEntity(String abc, String def) {
-        this.abc = abc;
+    public DimensionEntity(String id, String def) {
+        this.id = id;
         this.def = def;
     }
 
-    public String getAbc() {
-        return abc;
+    public String getId() {
+        return id;
     }
 
-    public void setAbc(String abc) {
-        this.abc = abc;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getDef() {
@@ -33,7 +33,7 @@ public class DimensionEntity implements Serializable {
     @Override
     public String toString() {
         return "DimensionEntity{" +
-                "abc='" + abc + '\'' +
+                "abc='" + id + '\'' +
                 ", def='" + def + '\'' +
                 '}';
     }
