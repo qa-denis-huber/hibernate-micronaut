@@ -34,6 +34,7 @@ public class SectionController {
     @Get("/{id}")
     @Transactional(readOnly = true)
     public SectionEntity findByAbc(@QueryValue String id) {
+        // TODO: query list instead of single entity
         Query query = entityManager.createNativeQuery("SELECT * FROM section s WHERE s.dimensions->>'id' = '" + id + "'", SectionEntity.class);
         return (SectionEntity) query.getResultList().get(0);
     }
@@ -42,6 +43,7 @@ public class SectionController {
     @Transactional
     public SectionEntity save() {
         SectionEntity sectionEntity = new SectionEntity();
+        // TODO: change to list
         sectionEntity.setDimensions(new DimensionEntity("1", "20"));
         entityManager.persist(sectionEntity);
         return sectionEntity;

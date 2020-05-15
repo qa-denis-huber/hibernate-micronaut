@@ -23,6 +23,7 @@ public class SectionEntity {
     @NotNull
     @Column(name = "dimensions")
     @Type(type = "de.denis.poc.DimensionEntityType")
+    // TODO: Change to list
     private DimensionEntity dimensions;
 
     public SectionEntity() {
