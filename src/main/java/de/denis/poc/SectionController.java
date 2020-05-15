@@ -34,8 +34,8 @@ public class SectionController {
     @Get("/{id}")
     @Transactional(readOnly = true)
     public SectionEntity findByAbc(@QueryValue String id) {
-        Query query = entityManager.createNativeQuery("SELECT * FROM section s WHERE s.dimensions->'id' = '" + id + "'", SectionEntity.class);
-        return (SectionEntity) query.getSingleResult();
+        Query query = entityManager.createNativeQuery("SELECT * FROM section s WHERE s.dimensions->>'id' = '" + id + "'", SectionEntity.class);
+        return (SectionEntity) query.getResultList().get(0);
     }
 
     @Post
