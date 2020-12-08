@@ -1,4 +1,4 @@
-CREATE TABLE section (
-    id uuid PRIMARY KEY not null,
-    dimensions jsonb not null
+CREATE TABLE result_set (
+    id uuid primary key not null,
+    dimensions varchar[] not null
 );

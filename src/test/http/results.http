@@ -1,0 +1,9 @@
+GET http://localhost:8080/results
+
+###
+
+GET http://localhost:8080/results/1
+
+###
+
+POST http://localhost:8080/results
