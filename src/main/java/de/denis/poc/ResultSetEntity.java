@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "result_sets")
+@Table(name = "result_set")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,8 +18,8 @@ public class ResultSetEntity {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "uuid", updatable = false, nullable = false)
-    private UUID uuid;
+    @Column(name = "id", updatable = false, nullable = false)
+    private UUID id;
 
     @Column(name = "dimensions", nullable = false)
     @Type(type = "de.denis.poc.StringArrayType")

@@ -47,7 +47,7 @@ public class ResultController {
         }
 
         ResultSetEntity resultSetEntity = new ResultSetEntity(UUID.randomUUID(), dimensions.toArray(new String[0]));
-        entityManager.persist(resultSetEntity);
+        entityManager.merge(resultSetEntity);
 
         return resultSetEntity;
     }
